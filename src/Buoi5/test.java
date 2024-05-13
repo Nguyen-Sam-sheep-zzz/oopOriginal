@@ -1,2 +1,16 @@
-package Buoi5;public class test {
+package Buoi5;
+
+public class test {
+    public static void main(String[] args) {
+        int i = 1;
+        while (i < 100) {
+            if (i % 2 == 0 ){
+                System.out.print(" ");
+            }
+            else {
+                System.out.print(i);
+            }
+            i++;
+        }
+    }
 }

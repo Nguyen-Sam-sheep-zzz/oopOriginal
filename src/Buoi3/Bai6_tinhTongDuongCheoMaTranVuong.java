@@ -3,6 +3,7 @@ package Buoi3;
 import java.util.Scanner;
 
 public class Bai6_tinhTongDuongCheoMaTranVuong {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println(" Nhập mảng 2 chiều mà bạn muốn");
@@ -48,6 +49,5 @@ public class Bai6_tinhTongDuongCheoMaTranVuong {
                 System.out.println("vui lòng chỉ chọn 1 hoặc 2 ");
                 break;
         }
-
     }
 }

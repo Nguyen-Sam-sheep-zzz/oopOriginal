@@ -1,10 +1,12 @@
 package Buoi5;
 
-public class baiTapTemperature {
+import java.util.Scanner;
+
+public class Temperature {
     private static double C;
 
-    baiTapTemperature(double C) {
-        baiTapTemperature.C = C;
+    Temperature(double C) {
+        Temperature.C = C;
     }
 
     public static double getC() {
@@ -26,7 +28,10 @@ public class baiTapTemperature {
     }
 
     public static void main(String[] args) {
-        baiTapTemperature temperature = new baiTapTemperature(25);
-        temperature.display();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhập C của bạn: ");
+        int C = sc.nextInt();
+        Temperature temp = new Temperature(C);
+        temp.display();
     }
 }

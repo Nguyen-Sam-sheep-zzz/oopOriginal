@@ -1,2 +1,6 @@
-package Buoi4;public class test2 {
+package Buoi4;
+
+public class test2 {
+    public static void main(String[] args) {
+    }
 }

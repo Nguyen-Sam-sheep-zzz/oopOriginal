@@ -7,18 +7,17 @@ public class anhKhanhCCTSenglish {
         Scanner infor = new Scanner(System.in);
         System.out.println("Hãy nhập số mà bạn muốn đọc thành chữ vào đây: ");
         int number = infor.nextInt();
-        while (number >= 1000 || number < 0 ){
+        while (number >= 1000 || number < 0) {
             System.out.println("Ứng dụng chỉ có thể nhập được số có nguyên dương có 3 chữ số; bạn hãy nhập lại số mà bạn muốn chuyển đổi xuống đây:");
             number = new Scanner(System.in).nextInt();
         }
         int hundred = number / 100;
         int ten = (number % 100) / 10;
         int one = number % 10;
-        String[] hundredarray ={"","one hundred","two hundred","three hundred","four hundred","five hundred","six hundred","seven hundred","eight hundred","nine hundred"};
-        String[] tenarray ={"","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"};
-        String[] onearray ={"","one","two","three","four","five","six","seven","eight","nine"};
-
-        if (number >= 0 && number < 20 ) {
+        String[] hundredarray = {"", "one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"};
+        String[] tenarray = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+        String[] onearray = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+        if ( number < 20) {
             switch (number) {
                 case 0:
                     System.out.println("zero");
@@ -81,10 +80,10 @@ public class anhKhanhCCTSenglish {
                     System.out.println("nineteen");
                     break;
             }
-        }else if (number > 100 && ten == 0) {
+        } else if (number > 100 && ten == 0) {
             System.out.println(hundredarray[hundred] + onearray[one]);
         } else if (number > 100 && ten == 1) {
-            switch (one){
+            switch (one) {
                 case 0:
                     System.out.println(hundredarray[hundred] + " ten");
                 case 1:
@@ -115,8 +114,7 @@ public class anhKhanhCCTSenglish {
                     System.out.println(hundredarray[hundred] + " nineteen");
                     break;
             }
-        }
-        else {
+        } else {
             System.out.println(hundredarray[hundred] + " " + tenarray[ten] + " " + onearray[one]);
         }
     }
