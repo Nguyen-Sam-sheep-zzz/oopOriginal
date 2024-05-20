@@ -1,4 +1,4 @@
-package Buoi5;
+package Buoi5.MobileSend;
 
 import java.util.ArrayList;
 
@@ -22,6 +22,7 @@ public class MobileSend {
     public void pinNt() {
         this.pin -= 1;
     }
+
     public void displayStatus() {
         if (this.status) {
             System.out.println(this.name + " Đang bật");
@@ -37,20 +38,22 @@ public class MobileSend {
             pinNt();
         }
     }
+
     public void showInput(int n) {
-        if(this.status) {
-            for (int i = 0; i < input.size(); i++ ) {
-                if(i + 1 == n ) {
+        if (this.status) {
+            for (int i = 0; i < input.size(); i++) {
+                if (i + 1 == n) {
                     System.out.println(this.input.get(i));
                 }
             }
             pinNt();
         }
     }
+
     public void showOutput(int n) {
-        if(this.status) {
-            for (int j = 0; j <output.size() ; j++) {
-                if(j + 1 == n ) {
+        if (this.status) {
+            for (int j = 0; j < output.size(); j++) {
+                if (j + 1 == n) {
                     System.out.println(this.output.get(j));
                 }
             }
@@ -70,13 +73,5 @@ public class MobileSend {
 
     public void turnOff() {
         this.status = false;
-    }
-    public static void main(String[] args) {
-        MobileSend iphone = new MobileSend("Iphone", 100);
-        MobileSend nokia = new MobileSend("Nokia", 100);
-        iphone.turnOn();
-        nokia.turnOn();
-        nokia.sendMess(iphone,"dcmm");
-        iphone.showInput(1);
     }
 }

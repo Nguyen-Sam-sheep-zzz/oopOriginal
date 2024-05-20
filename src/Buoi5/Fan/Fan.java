@@ -1,4 +1,4 @@
-package Buoi5;
+package Buoi5.Fan;
 
 public class Fan {
     private final int Slow = 1 ;
@@ -12,7 +12,6 @@ public class Fan {
     public Fan() {
 
     }
-
     public int getSlow() {
         return Slow;
     }
@@ -68,10 +67,5 @@ public class Fan {
         else {
             return "Speed: " + speed + " , Color: " + color + " , Radius: " + radius + " Fan is off";
         }
-    }
-
-    public static void main(String[] args) {
-        Fan Fan1 = new Fan("yellow", 3, true, 10);
-        Fan Fan2 = new Fan("blue", 2, false, 5);
     }
 }

@@ -1,4 +1,4 @@
-package Buoi5_2;
+package Buoi5_2.ElectricLamp;
 
 public class ElectricLamp {
     boolean Status;
@@ -41,16 +41,7 @@ class swichButton {
         status = true;
         System.out.println("Đèn " + Lamp.name + " bật bởi nút ");
     }
-
-    public static void main(String[] args) {
-        ElectricLamp lamp = new ElectricLamp(true, "Đèn 1");
-        ElectricLamp lamp2 = new ElectricLamp(true, "Đèn 2");
-        lamp2.turnOff();
-        swichButton button1 = new swichButton();
-        lamp.turnOn();
-        button1.connectToLamp(lamp2);
-        button1.switchOn();
-    }
 }
+
 
 

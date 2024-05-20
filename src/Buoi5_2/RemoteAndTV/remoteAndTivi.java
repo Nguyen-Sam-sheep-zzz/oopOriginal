@@ -1,24 +1,18 @@
-package Buoi5_2;
-import java.sql.SQLOutput;
+package Buoi5_2.RemoteAndTV;
 
 public class remoteAndTivi {
-    public static void main(String[] args) {
-        Remote remote1 = new Remote(1);
-        Tv Sony = new Tv("Sony",false);
-        Sony.turnOn();
-        Sony.changeTheChannelTv(7);
-        remote1.changeTheChannel(3);
-        System.out.println("Âm lượng ban đầu: " + Sony.getVolume());
-        Sony.controlVolumeTv(2);
-        System.out.println(Sony.getStatusTv());
-    }
+
 }
 class Remote {
-
     boolean status = false;
     int id;
+    Tv Tv;
     Remote(int id) {
         this.id = id;
+    }
+
+    public void connectToTv(Tv tv) {
+        this.Tv = tv;
     }
 
     public void changeTheChannel(int change) {
@@ -37,6 +31,10 @@ class Remote {
         else {
             System.out.println("Tv chưa bật");
         }
+    }
+
+    public void turnOff() {
+         Tv.turnOff();
     }
 }
 
@@ -81,5 +79,9 @@ class Tv {
     public void turnOn(){
         statusTv = true;
         System.out.println("Tv đã bật");
+    }
+    public void turnOff(){
+        statusTv = false;
+        System.out.println("Tv đã tắt");
     }
 }
