@@ -56,37 +56,27 @@ public class Library {
         }
         return false;
     }
-
-    public void sortEbooksWithHeadLine(boolean ascending) {
+    public void Comparator(boolean ascending) {
         Comparator<EBooks> comparator = Comparator.comparing(EBooks::getHeadline);
         if (!ascending) {
             comparator = comparator.reversed();
         }
         Arrays.sort(listEbooks, comparator);
     }
+    public void sortEbooksWithHeadLine(boolean ascending) {
+       Comparator(ascending);
+    }
 
     public void sortEbooksWithAuthor(boolean ascending) {
-        Comparator<EBooks> comparator = Comparator.comparing(EBooks::getAuthor);
-        if (!ascending) {
-            comparator = comparator.reversed();
-        }
-        Arrays.sort(listEbooks, comparator);
+        Comparator(ascending);
     }
 
     public void sortEbooksWithYearOfPublication(boolean ascending) {
-        Comparator<EBooks> comparator = Comparator.comparing(EBooks::getYearOfPublication);
-        if (!ascending) {
-            comparator = comparator.reversed();
-        }
-        Arrays.sort(listEbooks, comparator);
+        Comparator(ascending);
     }
 
     public void sortEbooksWithGenre(boolean ascending) {
-        Comparator<EBooks> comparator = Comparator.comparing(EBooks::getGenre);
-        if (!ascending) {
-            comparator = comparator.reversed();
-        }
-        Arrays.sort(listEbooks, comparator);
+        Comparator(ascending);
     }
 
     public void displayiEbooks(EBooks i) {
