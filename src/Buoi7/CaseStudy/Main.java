@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        EBooks Memaybeo = new EBooks(1, "MeMayBeo", "Sam", 2010, "cc", 10, "PDF");
+        EBooks Toan = new EBooks(1, "Toan", "Sam", 2010, "cc", 10, "PDF");
         EBooks MeoBeoThickMC = new EBooks(4, "MeoBeoThickMC", "Sam", 2015, "cc", 10, "PDF");
         EBooks TiengVietLop1 = new EBooks(3, "TiengVietLop1", "Sam", 2011, "cc", 10, "PDF");
         EBooks TiengVietLop2 = new EBooks(2, "TiengVietLop2", "Sam", 2014, "cc", 10, "PDF");
         Library LibraryOriginal = new Library();
-        LibraryOriginal.addEbooks(Memaybeo);
+        LibraryOriginal.addEbooks(Toan);
         LibraryOriginal.addEbooks(MeoBeoThickMC);
         LibraryOriginal.addEbooks(TiengVietLop1);
         LibraryOriginal.addEbooks(TiengVietLop2);
