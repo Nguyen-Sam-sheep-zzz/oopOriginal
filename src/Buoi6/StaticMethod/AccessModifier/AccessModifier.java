@@ -1,5 +1,7 @@
 package Buoi6.StaticMethod.AccessModifier;
 
+import java.awt.*;
+
 public class AccessModifier {
     static class Circle {
         private double radius = 1.0;
@@ -9,8 +11,9 @@ public class AccessModifier {
 
         }
 
-        Circle(double r) {
+        Circle(double r , String Color) {
             radius = r;
+            this.Color = Color;
         }
 
         protected double getRadius() {

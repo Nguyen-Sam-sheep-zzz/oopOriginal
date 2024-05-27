@@ -3,15 +3,13 @@ package Buoi6.StaticMethod.BaiTap;
 import java.util.*;
 
 public class Store {
-    public void add(List<Product> list) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Input name: ");
-        String name = sc.nextLine();
-        System.out.print("Input price: ");
-        long price = sc.nextLong();
-        System.out.print("Input the number of product: ");
-        int theNumberOfProduct = sc.nextInt();
+    private String name;
+    private long price;
+    private int theNumberOfProduct;
+    public Store() {
 
+    }
+    public void add(List<Product> list, String name, long price, int theNumberOfProduct) {
         Product p = new Product(name, price, theNumberOfProduct);
         list.add(p);
     }
@@ -20,12 +18,11 @@ public class Store {
         for (Product p : list) {
             System.out.println(p);
         }
-
     }
 
-    public long findPriceProduct(List<Product> list, String namePhone) {
+    public long findPriceProduct(List<Product> list, String nameProduct) {
         for (Product p : list) {
-            if (p.getName().equalsIgnoreCase(namePhone)) {
+            if (p.getName().equalsIgnoreCase(nameProduct)) {
                 return p.getPrice();
             }
         }
@@ -47,6 +44,9 @@ public class Store {
                 list.remove(p);
                 break;
             }
+            else {
+                System.out.println("k tìm thấy tên ");
+            }
         }
     }
 
@@ -54,16 +54,9 @@ public class Store {
         return (product).equalsIgnoreCase(name);
     }
 
-    public void edit(List<Product> list, int i) {
+    public void edit(List<Product> list, int i, String name, long price, int theNumberOfProduct) {
         for (int j = 0; j < list.size(); j++) {
             if (j == i) {
-                Scanner sc = new Scanner(System.in);
-                System.out.print("Input name: ");
-                String name = sc.nextLine();
-                System.out.print("Input price: ");
-                long price = sc.nextLong();
-                System.out.print("Input the number of product: ");
-                int theNumberOfProduct = sc.nextInt();
                 list.get(j).setName(name);
                 list.get(j).setPrice(price);
                 list.get(j).setTheNumberOfProducts(theNumberOfProduct);
