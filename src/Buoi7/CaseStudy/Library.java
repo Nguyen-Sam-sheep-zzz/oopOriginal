@@ -1,108 +1,108 @@
 package Buoi7.CaseStudy;
-
-import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class Library {
-    EBooks[] listEbooks = new EBooks[0];
-
-    public void addEbooks(EBooks newEBooks) {
-        EBooks[] newListEbook = new EBooks[listEbooks.length + 1];
-        newListEbook[newListEbook.length - 1] = newEBooks;
-        System.arraycopy(listEbooks, 0, newListEbook, 0, listEbooks.length);
-        listEbooks = newListEbook;
+    Ebook[] listEbook = new Ebook[0];
+    public void addEbook(Ebook newEbook) {
+        Ebook[] newListEbook = new Ebook[listEbook.length + 1];
+        newListEbook[newListEbook.length - 1] = newEbook;
+        System.arraycopy(listEbook, 0, newListEbook, 0, listEbook.length);
+        listEbook = newListEbook;
+    }
+    public Ebook[] display() {
+        return listEbook;
     }
 
-    public void displayAllEBooks() {
-        for (EBooks books : listEbooks) {
-            System.out.println(books.toString());
-        }
+    public int getSize() {
+        return listEbook.length;
     }
 
-    public boolean updateWithID(int ID) {
-        for (EBooks listEbook : listEbooks) {
-            if (listEbook.getID() == ID) {
-                System.out.println("Input ID Ebooks ");
-                int id = new Scanner(System.in).nextInt();
-                System.out.println("Input Headline ");
-                String headline = new Scanner(System.in).nextLine();
-                System.out.println("Input Author ");
-                String author = new Scanner(System.in).nextLine();
-                System.out.println("Input Genre ");
-                String genre = new Scanner(System.in).nextLine();
-                System.out.println("Input Year of publication ");
-                int yearOfPublication = new Scanner(System.in).nextInt();
-                System.out.println("Input file size ");
-                int fileSize = new Scanner(System.in).nextInt();
-                System.out.println("Input file format ");
-                String fileFormat = new Scanner(System.in).nextLine();
-                listEbook.setALlEBooks(id, headline, author, genre, yearOfPublication, fileSize, fileFormat);
-                return true;
+
+    public void updateWithID(int id, String headline, String author, String genre, int yearOfPublication, int fileSize, String fileFormat) {
+        for (Ebook listEbook : listEbook) {
+            if (listEbook.getID() == id) {
+                listEbook.setEbook(id, headline, author, genre, yearOfPublication, fileSize, fileFormat);
+                return;
             }
         }
-        return false;
     }
 
     public boolean removeWithID(int removeID) {
-        for (int i = 0; i < listEbooks.length; i++) {
-            if (listEbooks[i].getID() == removeID) {
-                EBooks[] newBook = new EBooks[listEbooks.length - 1];
-                System.arraycopy(listEbooks, 0, newBook, 0, i);
-                System.arraycopy(listEbooks, i + 1, newBook, i, listEbooks.length - i - 1);
-                listEbooks = newBook;
+        for (int i = 0; i < listEbook.length; i++) {
+            if (listEbook[i].getID() == removeID) {
+                Ebook[] newBook = new Ebook[listEbook.length - 1];
+                System.arraycopy(listEbook, 0, newBook, 0, i);
+                System.arraycopy(listEbook, i + 1, newBook, i, listEbook.length - i - 1);
+                listEbook = newBook;
                 return true;
             }
         }
         return false;
     }
     public void Comparator(boolean ascending) {
-        Comparator<EBooks> comparator = Comparator.comparing(EBooks::getHeadline);
+        Comparator<Ebook> comparator = Comparator.comparing(Ebook::getHeadline);
         if (!ascending) {
             comparator = comparator.reversed();
         }
-        Arrays.sort(listEbooks, comparator);
+        Arrays.sort(listEbook, comparator);
     }
-    public void sortEbooksWithHeadLine(boolean ascending) {
+    public void sortEbookWithHeadLine(boolean ascending) {
        Comparator(ascending);
     }
 
-    public void sortEbooksWithAuthor(boolean ascending) {
-        Comparator(ascending);
+    public void sortEbookWithAuthor(boolean ascending) {
+        Comparator<Ebook> comparator = Comparator.comparing(Ebook::getAuthor);
+        if (!ascending) {
+            comparator = comparator.reversed();
+        }
+        Arrays.sort(listEbook, comparator);
     }
 
-    public void sortEbooksWithYearOfPublication(boolean ascending) {
-        Comparator(ascending);
+    public void sortEbookWithYearOfPublication(boolean ascending) {
+        Comparator<Ebook> comparator = Comparator.comparing(Ebook::getYearOfPublication);
+        if (!ascending) {
+            comparator = comparator.reversed();
+        }
+        Arrays.sort(listEbook, comparator);
     }
 
-    public void sortEbooksWithGenre(boolean ascending) {
-        Comparator(ascending);
+    public void sortEbookWithGenre(boolean ascending) {
+        Comparator<Ebook> comparator = Comparator.comparing(Ebook::getGenre);
+        if (!ascending) {
+            comparator = comparator.reversed();
+        }
+        Arrays.sort(listEbook, comparator);
     }
 
-    public void displayiEbooks(EBooks i) {
-        System.out.println("Book{" +
-                "ID=" + i.getID() +
-                ", Headline='" + i.getHeadline() + '\'' +
-                ", Author='" + i.Author + '\'' +
-                ", Genre='" + i.getGenre() + '\'' +
-                ", YearOfPublication=" + i.getYearOfPublication() +
-                '}');
-    }
-
-    public boolean searchWithID(int ID) {
-        for (EBooks listEbook1 : listEbooks) {
+    public Ebook searchWithID(int ID) {
+        for (Ebook listEbook1 : listEbook) {
             if (listEbook1.getID() == ID) {
-                displayiEbooks(listEbook1);
+                return listEbook1;
+            }
+        }
+        return null;
+    }
+
+    public Ebook searchWithHeadline(String Headline) {
+        for (Ebook listEbook : listEbook) {
+            if (listEbook.getHeadline().equalsIgnoreCase(Headline)) {
+                return listEbook;
+            }
+        }
+        return null;
+    }
+    public boolean isExist(int id) {
+        for (Ebook e : listEbook) {
+            if(e.getID() == id) {
                 return true;
             }
         }
         return false;
     }
-
-    public boolean searchWithHeadline(String Headline) {
-        for (EBooks listEbook : listEbooks) {
-            if (listEbook.getHeadline().equalsIgnoreCase(Headline)) {
-                displayiEbooks(listEbook);
+    public boolean isExist(String headline) {
+        for (Ebook e : listEbook) {
+            if(e.getHeadline().equalsIgnoreCase(headline)) {
                 return true;
             }
         }

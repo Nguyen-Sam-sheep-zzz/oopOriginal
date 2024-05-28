@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        EBooks Toan = new EBooks(1, "Toan", "Sam", 2010, "cc", 10, "PDF");
-        EBooks MeoBeoThickMC = new EBooks(4, "MeoBeoThickMC", "Sam", 2015, "cc", 10, "PDF");
-        EBooks TiengVietLop1 = new EBooks(3, "TiengVietLop1", "Sam", 2011, "cc", 10, "PDF");
-        EBooks TiengVietLop2 = new EBooks(2, "TiengVietLop2", "Sam", 2014, "cc", 10, "PDF");
+        Ebook Toan = new Ebook(1, "Toan", "Sam", 2010, "Fiction", 10, "PDF");
+        Ebook MeoBeoThickMC = new Ebook(4, "MeoBeoThickMC", "Khanh", 2015, "Romance", 10, "PDF");
+        Ebook TiengVietLop1 = new Ebook(3, "TiengVietLop1", "Chanh", 2011, "Fantasy", 10, "PDF");
+        Ebook TiengVietLop2 = new Ebook(2, "TiengVietLop2", "Nhan", 2014, "Fantasy", 10, "PDF");
         Library LibraryOriginal = new Library();
-        LibraryOriginal.addEbooks(Toan);
-        LibraryOriginal.addEbooks(MeoBeoThickMC);
-        LibraryOriginal.addEbooks(TiengVietLop1);
-        LibraryOriginal.addEbooks(TiengVietLop2);
+        LibraryOriginal.addEbook(Toan);
+        LibraryOriginal.addEbook(MeoBeoThickMC);
+        LibraryOriginal.addEbook(TiengVietLop1);
+        LibraryOriginal.addEbook(TiengVietLop2);
         Scanner sc = new Scanner(System.in);
         System.out.println("Ur Library: ");
         System.out.println("Choice 0 to exit");
-        System.out.println("Choice 1 to display Ebooks ");
-        System.out.println("Choice 2 to add Ebooks ");
+        System.out.println("Choice 1 to display Ebook ");
+        System.out.println("Choice 2 to add Ebook ");
         System.out.println("Choice 3 to update information ");
         System.out.println("Choice 4 to remove information ");
         System.out.println("Choice 5 to sort to headline form A to Z ");
@@ -34,33 +34,49 @@ public class Main {
                 case 0:
                     System.exit(0);
                 case 1:
-                    LibraryOriginal.displayAllEBooks();
+                    display(LibraryOriginal);
                     break;
                 case 2:
-                    System.out.println("Input ID Ebooks ");
+                    System.out.println("Input ID Ebook ");
                     int id = new Scanner(System.in).nextInt();
-                    System.out.println("Input Headline Ebooks");
+                    System.out.println("Input Headline Ebook");
                     String headline = new Scanner(System.in).nextLine();
-                    System.out.println("Input Author Ebooks ");
+                    System.out.println("Input Author Ebook ");
                     String author = new Scanner(System.in).nextLine();
-                    System.out.println("Input Genre Ebooks ");
+                    System.out.println("Input Genre Ebook ");
                     String genre = new Scanner(System.in).nextLine();
-                    System.out.println("Input Year of publication Ebooks ");
+                    System.out.println("Input Year of publication Ebook ");
                     int yearOfPublication = new Scanner(System.in).nextInt();
-                    System.out.println("Input file size Ebooks ");
+                    System.out.println("Input file size Ebook ");
                     int fileSize = new Scanner(System.in).nextInt();
-                    System.out.println("Input file format Ebooks ");
+                    System.out.println("Input file format Ebook ");
                     String fileFormat = new Scanner(System.in).nextLine();
-                    LibraryOriginal.addEbooks(new EBooks(id, headline, author, yearOfPublication, genre, fileSize, fileFormat));
+                    LibraryOriginal.addEbook(new Ebook(id, headline, author, yearOfPublication, genre, fileSize, fileFormat));
                     break;
                 case 3:
                     System.out.println("Input update information ");
-                    int idUpdate = new Scanner(System.in).nextInt();
-                    if (!LibraryOriginal.updateWithID(idUpdate)) {
-                        System.out.println("not ID found");
-                    } else {
+                    int idU = new Scanner(System.in).nextInt();
+                    if (LibraryOriginal.isExist(idU)) {
+                        System.out.println("Input ID ");
+                        int idUpdate = new Scanner(System.in).nextInt();
+                        System.out.println("Input Headline ");
+                        String headlineUpdate = new Scanner(System.in).nextLine();
+                        System.out.println("Input Author ");
+                        String authorUpdate = new Scanner(System.in).nextLine();
+                        System.out.println("Input Genre ");
+                        String genreUpdate = new Scanner(System.in).nextLine();
+                        System.out.println("Input Year of publication ");
+                        int yearOfPublicationUpdate = new Scanner(System.in).nextInt();
+                        System.out.println("Input file size ");
+                        int fileSizeUpdate = new Scanner(System.in).nextInt();
+                        System.out.println("Input file format ");
+                        String fileFormatUpdate = new Scanner(System.in).nextLine();
+                        LibraryOriginal.updateWithID(idUpdate, headlineUpdate, authorUpdate, genreUpdate, yearOfPublicationUpdate, fileSizeUpdate, fileFormatUpdate);
                         System.out.println("After update information ");
-                        LibraryOriginal.displayAllEBooks();
+                        display(LibraryOriginal);
+                        break;
+                    } else {
+                        System.out.println("Not id found");
                     }
                     break;
                 case 4:
@@ -70,40 +86,53 @@ public class Main {
                         System.out.println("not ID found");
                     } else {
                         System.out.println("After remove information ");
-                        LibraryOriginal.displayAllEBooks();
+                        display(LibraryOriginal);
                     }
                     break;
                 case 5:
-                    LibraryOriginal.sortEbooksWithHeadLine(true);
-                    LibraryOriginal.displayAllEBooks();
+                    LibraryOriginal.sortEbookWithHeadLine(true);
+                    display(LibraryOriginal);
+
                     break;
                 case 6:
-                    LibraryOriginal.sortEbooksWithAuthor(true);
-                    LibraryOriginal.displayAllEBooks();
+                    LibraryOriginal.sortEbookWithAuthor(true);
+                    display(LibraryOriginal);
+
                     break;
                 case 7:
-                    LibraryOriginal.sortEbooksWithGenre(true);
-                    LibraryOriginal.displayAllEBooks();
+                    LibraryOriginal.sortEbookWithGenre(true);
+                    display(LibraryOriginal);
+
                     break;
                 case 8:
-                    LibraryOriginal.sortEbooksWithYearOfPublication(true);
-                    LibraryOriginal.displayAllEBooks();
+                    LibraryOriginal.sortEbookWithYearOfPublication(true);
+                    display(LibraryOriginal);
+
                     break;
                 case 9:
                     System.out.println("Input id to search Ebook");
                     int idSearch = new Scanner(System.in).nextInt();
-                    if (!LibraryOriginal.searchWithID(idSearch)) {
+                    if (!LibraryOriginal.isExist(idSearch)) {
                         System.out.println("not ID found");
+                        break;
                     }
-
+                    System.out.println(LibraryOriginal.searchWithID(idSearch));
                 case 10:
                     System.out.println("Input headline to search Ebook");
                     String headlineToSearch = new Scanner(System.in).nextLine();
-                    if (!LibraryOriginal.searchWithHeadline(headlineToSearch)) {
-                        System.out.println("not headline found");
+                    if (!LibraryOriginal.isExist(headlineToSearch)) {
+                        System.out.println("not ID found");
+                        break;
                     }
+                    System.out.println(LibraryOriginal.searchWithHeadline(headlineToSearch));
             }
         }
         while (true);
+    }
+
+    public static void display(Library LibraryOriginal) {
+        for (int i = 0; i < LibraryOriginal.getSize(); i++) {
+            System.out.println(LibraryOriginal.display()[i]);
+        }
     }
 }
