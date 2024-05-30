@@ -1,6 +1,6 @@
 package Buoi7.CaseStudy;
 
-public class Ebook extends Book {
+public class Ebook extends Book{
     int FileSize;
     String FileFormat;
     public Ebook(int ID, String Headline, String Author,int  YearOfPublication , String Genre, int FileSize, String FileFormat) {

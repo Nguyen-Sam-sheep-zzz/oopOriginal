@@ -51,7 +51,7 @@ public class Book {
         Genre = genre;
     }
 
-    public void setALlBooks(int id, String headline, String author, String genre, int yearOfPublication) {
+    public void setAll(int id, String headline, String author, String genre, int yearOfPublication) {
         ID = id;
         Headline = headline;
         Author = author;
