@@ -1,16 +1,9 @@
 package Buoi7.CaseStudy;
+
 public class Main {
     public static void main(String[] args) {
         LibraryConsole Lconsole = new LibraryConsole();
-        Ebook Toan = new Ebook(1, "Toan", "Sam", 2010, "Fiction", 10, "PDF");
-        Ebook MeoBeoThickMC = new Ebook(4, "MeoBeoThickMC", "Khanh", 2015, "Romance", 10, "PDF");
-        Ebook TiengVietLop1 = new Ebook(3, "TiengVietLop1", "Chanh", 2011, "Fantasy", 10, "PDF");
-        Ebook TiengVietLop2 = new Ebook(2, "TiengVietLop2", "Nhan", 2014, "Fantasy", 10, "PDF");
         Library LibraryOriginal = new Library();
-        LibraryOriginal.addEbook(Toan);
-        LibraryOriginal.addEbook(MeoBeoThickMC);
-        LibraryOriginal.addEbook(TiengVietLop1);
-        LibraryOriginal.addEbook(TiengVietLop2);
         do {
             int choice = Lconsole.menu();
             switch (choice) {
@@ -21,6 +14,7 @@ public class Main {
                     break;
                 case 2:
                     Lconsole.addByConsole(LibraryOriginal);
+                    Lconsole.display(LibraryOriginal);
                     break;
                 case 3:
                     Lconsole.updateIDBycosole(LibraryOriginal, Lconsole);

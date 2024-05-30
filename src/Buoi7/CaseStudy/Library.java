@@ -1,20 +1,21 @@
 package Buoi7.CaseStudy;
-
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class Library {
-    final int MaxLimit = 1000;
-    Ebook[] listEbook = new Ebook[MaxLimit];
-    private int count = 0;
-
-    public void addEbook(Ebook newEbook) {
-        if (this.count >= MaxLimit) {
-            return;
+    Ebook[] listEbook = new Ebook[0];
+    public boolean addEbook(Ebook newEbook) {
+        for (Ebook ebook : listEbook) {
+            if (newEbook.getID() == ebook.getID()) {
+                return false;
+            }
         }
-        this.listEbook[count++] = newEbook;
+        Ebook[] newListEbook = new Ebook[listEbook.length + 1];
+        newListEbook[newListEbook.length - 1] = newEbook;
+        System.arraycopy(listEbook, 0, newListEbook, 0, listEbook.length);
+        listEbook = newListEbook;
+        return true;
     }
-
     public Ebook[] display() {
         return listEbook;
     }
@@ -35,7 +36,6 @@ public class Library {
         }
         return false;
     }
-
     public void Comparator(boolean ascending) {
         Comparator<Ebook> comparator = Comparator.comparing(Ebook::getHeadline);
         if (!ascending) {
@@ -43,9 +43,8 @@ public class Library {
         }
         Arrays.sort(listEbook, comparator);
     }
-
     public void sortEbookWithHeadLine(boolean ascending) {
-        Comparator(ascending);
+       Comparator(ascending);
     }
 
     public void sortEbookWithAuthor(boolean ascending) {
@@ -89,19 +88,17 @@ public class Library {
         }
         return null;
     }
-
     public boolean isExist(int id) {
         for (Ebook e : listEbook) {
-            if (e.getID() == id) {
+            if(e.getID() == id) {
                 return true;
             }
         }
         return false;
     }
-
     public boolean isExist(String headline) {
         for (Ebook e : listEbook) {
-            if (e.getHeadline().equalsIgnoreCase(headline)) {
+            if(e.getHeadline().equalsIgnoreCase(headline)) {
                 return true;
             }
         }

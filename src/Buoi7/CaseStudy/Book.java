@@ -1,13 +1,13 @@
 package Buoi7.CaseStudy;
 
 public class Book {
-    int ID;
-    String Headline;
-    String Author;
-    String Genre;
-    int YearOfPublication;
+    private int ID;
+    private String Headline;
+    private String Author;
+    private String Genre;
+    private int YearOfPublication;
 
-    public Book(int ID, String Headline, String Author,int YearOfPublication, String Genre) {
+    public Book(int ID, String Headline, String Author, int YearOfPublication, String Genre) {
         this.ID = ID;
         this.Headline = Headline;
         this.Author = Author;
