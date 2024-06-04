@@ -3,9 +3,8 @@ package Buoi7.CaseStudy;
 import java.util.Scanner;
 
 public class LibraryConsole {
-
     public void inputHeadlineSByConsole(Library LibraryOriginal) {
-        System.out.println("Input headline to search Ebook");
+        System.out.print("Input headline to search Ebook");
         String headlineToSearch = new Scanner(System.in).nextLine();
         if (!LibraryOriginal.isExist(headlineToSearch)) {
             System.out.println("not ID found");
@@ -15,7 +14,7 @@ public class LibraryConsole {
     }
 
     public void inputIDSByConsole(Library LibraryOriginal) {
-        System.out.println("Input id to search Ebook");
+        System.out.print("Input id to search Ebook");
         int idSearch = new Scanner(System.in).nextInt();
         if (!LibraryOriginal.isExist(idSearch)) {
             System.out.println("not ID found");
@@ -25,7 +24,7 @@ public class LibraryConsole {
     }
 
     public void inputRIBycosole(Library LibraryOriginal, LibraryConsole Lconsole) {
-        System.out.println("Input remove information ");
+        System.out.print("Input remove information ");
         int idRemove = new Scanner(System.in).nextInt();
         if (!LibraryOriginal.removeWithID(idRemove)) {
             System.out.println("not ID found");
@@ -36,7 +35,7 @@ public class LibraryConsole {
     }
 
     public void updateIDBycosole(Library LibraryOriginal, LibraryConsole Lconsole) {
-        System.out.println("Input update information ");
+        System.out.print("Input update information ");
         int idU = new Scanner(System.in).nextInt();
         if (LibraryOriginal.isExist(idU)) {
             Lconsole.updateIDByCosoleMenu(LibraryOriginal, idU);
@@ -47,19 +46,19 @@ public class LibraryConsole {
     }
 
     public void updateIDByCosoleMenu(Library LibraryOriginal, int idU) {
-        System.out.println("Input ID ");
+        System.out.print("Input ID ");
         int idUpdate = new Scanner(System.in).nextInt();
-        System.out.println("Input Headline ");
+        System.out.print("Input Headline ");
         String headlineUpdate = new Scanner(System.in).nextLine();
-        System.out.println("Input Author ");
+        System.out.print("Input Author ");
         String authorUpdate = new Scanner(System.in).nextLine();
-        System.out.println("Input Genre ");
+        System.out.print("Input Genre ");
         String genreUpdate = new Scanner(System.in).nextLine();
-        System.out.println("Input Year of publication ");
+        System.out.print("Input Year of publication ");
         int yearOfPublicationUpdate = new Scanner(System.in).nextInt();
-        System.out.println("Input file size ");
+        System.out.print("Input file size ");
         int fileSizeUpdate = new Scanner(System.in).nextInt();
-        System.out.println("Input file format ");
+        System.out.print("Input file format ");
         String fileFormatUpdate = new Scanner(System.in).nextLine();
         LibraryOriginal.searchWithID(idU).setEbook(idUpdate, headlineUpdate, authorUpdate, genreUpdate, yearOfPublicationUpdate, fileSizeUpdate, fileFormatUpdate);
         System.out.println("After update information ");
@@ -67,6 +66,9 @@ public class LibraryConsole {
     }
 
     public void display(Library LibraryOriginal) {
+        if (LibraryOriginal.getSize() == 0) {
+            System.out.println("There is no ebook yet");
+        }
         for (int i = 0; i < LibraryOriginal.getSize(); i++) {
             System.out.println(LibraryOriginal.display()[i]);
         }
@@ -79,17 +81,17 @@ public class LibraryConsole {
             System.out.print("pls input ID again: ");
             id = new Scanner(System.in).nextInt();
         }
-        System.out.println("Input Headline Ebook");
+        System.out.print("Input Headline Ebook");
         String headline = new Scanner(System.in).nextLine();
-        System.out.println("Input Author Ebook ");
+        System.out.print("Input Author Ebook ");
         String author = new Scanner(System.in).nextLine();
-        System.out.println("Input Genre Ebook ");
+        System.out.print("Input Genre Ebook ");
         String genre = new Scanner(System.in).nextLine();
-        System.out.println("Input Year of publication Ebook ");
+        System.out.print("Input Year of publication Ebook ");
         int yearOfPublication = new Scanner(System.in).nextInt();
-        System.out.println("Input file size Ebook ");
+        System.out.print("Input file size Ebook ");
         int fileSize = new Scanner(System.in).nextInt();
-        System.out.println("Input file format Ebook ");
+        System.out.print("Input file format Ebook ");
         String fileFormat = new Scanner(System.in).nextLine();
         LibraryOriginal.addEbook(new Ebook(id, headline, author, yearOfPublication, genre, fileSize, fileFormat));
     }
