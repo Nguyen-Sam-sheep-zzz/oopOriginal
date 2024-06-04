@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         LibraryConsole Lconsole = new LibraryConsole();
         Library LibraryOriginal = new Library();
-        do {
+        while (true) {
             int choice = Lconsole.menu();
             switch (choice) {
                 case 0:
@@ -46,6 +46,5 @@ public class Main {
                     break;
             }
         }
-        while (true);
     }
 }

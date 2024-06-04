@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class LibraryConsole {
     public void inputHeadlineSByConsole(Library LibraryOriginal) {
-        System.out.print("Input headline to search Ebook");
+        System.out.print("Input headline to search Ebook ");
         String headlineToSearch = new Scanner(System.in).nextLine();
         if (!LibraryOriginal.isExist(headlineToSearch)) {
             System.out.println("not ID found");
@@ -14,7 +14,7 @@ public class LibraryConsole {
     }
 
     public void inputIDSByConsole(Library LibraryOriginal) {
-        System.out.print("Input id to search Ebook");
+        System.out.print("Input id to search Ebook ");
         int idSearch = new Scanner(System.in).nextInt();
         if (!LibraryOriginal.isExist(idSearch)) {
             System.out.println("not ID found");
@@ -72,16 +72,17 @@ public class LibraryConsole {
         for (int i = 0; i < LibraryOriginal.getSize(); i++) {
             System.out.println(LibraryOriginal.display()[i]);
         }
+        System.out.println();
     }
     public void addByConsole(Library LibraryOriginal) {
-        System.out.println("Input ID Ebook ");
+        System.out.print("Input ID Ebook ");
         int id = new Scanner(System.in).nextInt();
         while (LibraryOriginal.isExist(id)) {
-            System.out.println("this ID have been exist ");
+            System.out.println("This ID have been exist ");
             System.out.print("pls input ID again: ");
             id = new Scanner(System.in).nextInt();
         }
-        System.out.print("Input Headline Ebook");
+        System.out.print("Input Headline Ebook ");
         String headline = new Scanner(System.in).nextLine();
         System.out.print("Input Author Ebook ");
         String author = new Scanner(System.in).nextLine();
