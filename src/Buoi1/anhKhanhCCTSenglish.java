@@ -1,6 +1,8 @@
+package Buoi1;
+
 import java.util.Scanner;
 
-public class anhKhanhCCTenglish {
+public class anhKhanhCCTSenglish {
     public static void main(String[] args) {
         Scanner infor = new Scanner(System.in);
         System.out.println("Hãy nhập số mà bạn muốn đọc thành chữ vào đây: ");
@@ -15,8 +17,7 @@ public class anhKhanhCCTenglish {
         String[] hundredarray = {"", "one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"};
         String[] tenarray = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
         String[] onearray = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-
-        if (number >= 0 && number < 20) {
+        if ( number < 20) {
             switch (number) {
                 case 0:
                     System.out.println("zero");
@@ -118,5 +119,3 @@ public class anhKhanhCCTenglish {
         }
     }
 }
-
-

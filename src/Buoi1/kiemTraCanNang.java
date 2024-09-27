@@ -1,6 +1,8 @@
+package Buoi1;
+
 import java.util.Scanner;
 
-public class KiemTraCanNang {
+public class kiemTraCanNang {
     public static void main(String[] args) {
         Scanner ip = new Scanner(System.in);
         double height, weight, bmi;

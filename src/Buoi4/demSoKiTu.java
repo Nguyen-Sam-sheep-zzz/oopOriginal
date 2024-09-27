@@ -1,9 +1,8 @@
-package Buoi3;
+package Buoi4;
 
 import java.util.Scanner;
-import java.util.Stack;
 
-public class Bai8_demSoLanXuatHienKiTuTrongChuoi {
+public class demSoKiTu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập vào một chuỗi bất kì");
@@ -22,5 +21,5 @@ public class Bai8_demSoLanXuatHienKiTuTrongChuoi {
         }
         return b;
     }
-
 }
+
